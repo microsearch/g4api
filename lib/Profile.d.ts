@@ -10,7 +10,7 @@ export declare class Profile<SecurityDataType = unknown> extends HttpClient<Secu
      * @request GET:/profile/{id}
      * @secure
      */
-    profileDetail: (id: number, params?: RequestParams) => Promise<import("./http-client").HttpResponse<GetProfileResponse, any>>;
+    profileDetail: (id: number, params?: RequestParams) => Promise<import("axios").AxiosResponse<GetProfileResponse>>;
     /**
      * No description
      *
@@ -20,7 +20,7 @@ export declare class Profile<SecurityDataType = unknown> extends HttpClient<Secu
      * @request PUT:/profile/{id}
      * @secure
      */
-    profileUpdate: (id: number, data: UpdateProfileRequest, params?: RequestParams) => Promise<import("./http-client").HttpResponse<UpdateProfileResponse, any>>;
+    profileUpdate: (id: number, data: UpdateProfileRequest, params?: RequestParams) => Promise<import("axios").AxiosResponse<UpdateProfileResponse>>;
     /**
      * No description
      *
@@ -30,7 +30,7 @@ export declare class Profile<SecurityDataType = unknown> extends HttpClient<Secu
      * @request DELETE:/profile/{id}
      * @secure
      */
-    profileDelete: (id: number, params?: RequestParams) => Promise<import("./http-client").HttpResponse<void, any>>;
+    profileDelete: (id: number, params?: RequestParams) => Promise<import("axios").AxiosResponse<void>>;
     /**
      * No description
      *
@@ -40,5 +40,5 @@ export declare class Profile<SecurityDataType = unknown> extends HttpClient<Secu
      * @request POST:/profile
      * @secure
      */
-    profileCreate: (data: CreateProfileRequest, params?: RequestParams) => Promise<import("./http-client").HttpResponse<CreateProfileResponse, any>>;
+    profileCreate: (data: CreateProfileRequest, params?: RequestParams) => Promise<import("axios").AxiosResponse<CreateProfileResponse>>;
 }

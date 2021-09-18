@@ -10,5 +10,5 @@ export declare class UserClaim<SecurityDataType = unknown> extends HttpClient<Se
      * @request PUT:/user-claim
      * @secure
      */
-    userClaimUpdate: (data: UserClaimAccountRequest, params?: RequestParams) => Promise<import("./http-client").HttpResponse<void, any>>;
+    userClaimUpdate: (data: UserClaimAccountRequest, params?: RequestParams) => Promise<import("axios").AxiosResponse<void>>;
 }

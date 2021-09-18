@@ -15,7 +15,7 @@ export declare class Users<SecurityDataType = unknown> extends HttpClient<Securi
         skip?: number | undefined;
         take?: number | undefined;
         archived?: boolean | undefined;
-    } | undefined, params?: RequestParams) => Promise<import("./http-client").HttpResponse<GetUsersResponse, any>>;
+    } | undefined, params?: RequestParams) => Promise<import("axios").AxiosResponse<GetUsersResponse>>;
     /**
      * @description Returns the list of user records which match the specified (optional) criteria.
      *
@@ -25,5 +25,5 @@ export declare class Users<SecurityDataType = unknown> extends HttpClient<Securi
      * @request POST:/users
      * @secure
      */
-    usersCreate: (data: GetUsersRequest, params?: RequestParams) => Promise<import("./http-client").HttpResponse<GetUsersResponse, any>>;
+    usersCreate: (data: GetUsersRequest, params?: RequestParams) => Promise<import("axios").AxiosResponse<GetUsersResponse>>;
 }

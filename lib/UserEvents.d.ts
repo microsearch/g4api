@@ -10,5 +10,5 @@ export declare class UserEvents<SecurityDataType = unknown> extends HttpClient<S
      * @request POST:/user-events
      * @secure
      */
-    userEventsCreate: (data: GetUserEventsRequest, params?: RequestParams) => Promise<import("./http-client").HttpResponse<GetUserEventsResponse, any>>;
+    userEventsCreate: (data: GetUserEventsRequest, params?: RequestParams) => Promise<import("axios").AxiosResponse<GetUserEventsResponse>>;
 }

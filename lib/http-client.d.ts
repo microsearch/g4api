@@ -1,6 +1,6 @@
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse, ResponseType } from "axios";
 export declare type QueryParamsType = Record<string | number, any>;
-export declare type ResponseFormat = keyof Omit<Body, "body" | "bodyUsed">;
-export interface FullRequestParams extends Omit<RequestInit, "body"> {
+export interface FullRequestParams extends Omit<AxiosRequestConfig, "data" | "params" | "url" | "responseType"> {
     /** set parameter to `true` for call `securityWorker` for this request */
     secure?: boolean;
     /** request path */
@@ -10,49 +10,30 @@ export interface FullRequestParams extends Omit<RequestInit, "body"> {
     /** query params */
     query?: QueryParamsType;
     /** format of response (i.e. response.json() -> format: "json") */
-    format?: ResponseFormat;
+    format?: ResponseType;
     /** request body */
     body?: unknown;
-    /** base url */
-    baseUrl?: string;
-    /** request cancellation token */
-    cancelToken?: CancelToken;
 }
 export declare type RequestParams = Omit<FullRequestParams, "body" | "method" | "query" | "path">;
-export interface ApiConfig<SecurityDataType = unknown> {
-    baseUrl?: string;
-    baseApiParams?: Omit<RequestParams, "baseUrl" | "cancelToken" | "signal">;
-    securityWorker?: (securityData: SecurityDataType | null) => Promise<RequestParams | void> | RequestParams | void;
-    customFetch?: typeof fetch;
+export interface ApiConfig<SecurityDataType = unknown> extends Omit<AxiosRequestConfig, "data" | "cancelToken"> {
+    securityWorker?: (securityData: SecurityDataType | null) => Promise<AxiosRequestConfig | void> | AxiosRequestConfig | void;
+    secure?: boolean;
+    format?: ResponseType;
 }
-export interface HttpResponse<D extends unknown, E extends unknown = unknown> extends Response {
-    data: D;
-    error: E;
-}
-declare type CancelToken = Symbol | string | number;
 export declare enum ContentType {
     Json = "application/json",
     FormData = "multipart/form-data",
     UrlEncoded = "application/x-www-form-urlencoded"
 }
 export declare class HttpClient<SecurityDataType = unknown> {
-    baseUrl: string;
+    instance: AxiosInstance;
     private securityData;
     private securityWorker?;
-    private abortControllers;
-    private customFetch;
-    private baseApiParams;
-    constructor(apiConfig?: ApiConfig<SecurityDataType>);
+    private secure?;
+    private format?;
+    constructor({ securityWorker, secure, format, ...axiosConfig }?: ApiConfig<SecurityDataType>);
     setSecurityData: (data: SecurityDataType | null) => void;
-    private encodeQueryParam;
-    private addQueryParam;
-    private addArrayQueryParam;
-    protected toQueryString(rawQuery?: QueryParamsType): string;
-    protected addQueryParams(rawQuery?: QueryParamsType): string;
-    private contentFormatters;
     private mergeRequestParams;
-    private createAbortSignal;
-    abortRequest: (cancelToken: CancelToken) => void;
-    request: <T = any, E = any>({ body, secure, path, type, query, format, baseUrl, cancelToken, ...params }: FullRequestParams) => Promise<HttpResponse<T, E>>;
+    private createFormData;
+    request: <T = any, _E = any>({ secure, path, type, query, format, body, ...params }: FullRequestParams) => Promise<AxiosResponse<T>>;
 }
-export {};

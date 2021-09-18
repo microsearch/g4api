@@ -10,5 +10,5 @@ export declare class Documents<SecurityDataType = unknown> extends HttpClient<Se
      * @request POST:/documents
      * @secure
      */
-    documentsCreate: (data: LoadDocumentRequest, params?: RequestParams) => Promise<import("./http-client").HttpResponse<LoadDocumentResponse, any>>;
+    documentsCreate: (data: LoadDocumentRequest, params?: RequestParams) => Promise<import("axios").AxiosResponse<LoadDocumentResponse>>;
 }

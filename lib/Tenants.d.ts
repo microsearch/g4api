@@ -10,7 +10,7 @@ export declare class Tenants<SecurityDataType = unknown> extends HttpClient<Secu
      * @request GET:/tenants
      * @secure
      */
-    tenantsList: (params?: RequestParams) => Promise<import("./http-client").HttpResponse<GetTenantsResponse, any>>;
+    tenantsList: (params?: RequestParams) => Promise<import("axios").AxiosResponse<GetTenantsResponse>>;
     /**
      * No description
      *
@@ -22,5 +22,5 @@ export declare class Tenants<SecurityDataType = unknown> extends HttpClient<Secu
      */
     tenantsDelete: (query?: {
         days?: number | undefined;
-    } | undefined, params?: RequestParams) => Promise<import("./http-client").HttpResponse<void, any>>;
+    } | undefined, params?: RequestParams) => Promise<import("axios").AxiosResponse<void>>;
 }

@@ -10,5 +10,5 @@ export declare class Admins<SecurityDataType = unknown> extends HttpClient<Secur
      * @request GET:/admins
      * @secure
      */
-    adminsList: (params?: RequestParams) => Promise<import("./http-client").HttpResponse<GetAdminsResponse, any>>;
+    adminsList: (params?: RequestParams) => Promise<import("axios").AxiosResponse<GetAdminsResponse>>;
 }

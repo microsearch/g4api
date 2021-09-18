@@ -10,5 +10,5 @@ export declare class Profiles<SecurityDataType = unknown> extends HttpClient<Sec
      * @request GET:/profiles
      * @secure
      */
-    profilesList: (params?: RequestParams) => Promise<import("./http-client").HttpResponse<GetProfilesResponse, any>>;
+    profilesList: (params?: RequestParams) => Promise<import("axios").AxiosResponse<GetProfilesResponse>>;
 }

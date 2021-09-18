@@ -9,5 +9,5 @@ export declare class Sync<SecurityDataType = unknown> extends HttpClient<Securit
      * @request POST:/sync
      * @secure
      */
-    syncCreate: (params?: RequestParams) => Promise<import("./http-client").HttpResponse<void, any>>;
+    syncCreate: (params?: RequestParams) => Promise<import("axios").AxiosResponse<void>>;
 }

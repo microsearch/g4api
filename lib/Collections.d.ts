@@ -9,7 +9,7 @@ export declare class Collections<SecurityDataType = unknown> extends HttpClient<
      * @request GET:/collections
      * @secure
      */
-    collectionsList: (params?: RequestParams) => Promise<import("./http-client").HttpResponse<GetCollectionsResponse, any>>;
+    collectionsList: (params?: RequestParams) => Promise<import("axios").AxiosResponse<GetCollectionsResponse>>;
     /**
      * No description
      *
@@ -18,5 +18,5 @@ export declare class Collections<SecurityDataType = unknown> extends HttpClient<
      * @request POST:/collections
      * @secure
      */
-    collectionsCreate: (data: PostCollectionRequest, params?: RequestParams) => Promise<import("./http-client").HttpResponse<PostCollectionResponse, any>>;
+    collectionsCreate: (data: PostCollectionRequest, params?: RequestParams) => Promise<import("axios").AxiosResponse<PostCollectionResponse>>;
 }

@@ -10,7 +10,7 @@ export declare class Roles<SecurityDataType = unknown> extends HttpClient<Securi
      * @request GET:/roles/{scope}
      * @secure
      */
-    rolesDetail: (scope: string, params?: RequestParams) => Promise<import("./http-client").HttpResponse<GetRolesResponse, any>>;
+    rolesDetail: (scope: string, params?: RequestParams) => Promise<import("axios").AxiosResponse<GetRolesResponse>>;
     /**
      * No description
      *
@@ -20,5 +20,5 @@ export declare class Roles<SecurityDataType = unknown> extends HttpClient<Securi
      * @request GET:/roles
      * @secure
      */
-    rolesList: (params?: RequestParams) => Promise<import("./http-client").HttpResponse<GetRolesResponse, any>>;
+    rolesList: (params?: RequestParams) => Promise<import("axios").AxiosResponse<GetRolesResponse>>;
 }

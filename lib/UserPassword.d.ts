@@ -10,5 +10,5 @@ export declare class UserPassword<SecurityDataType = unknown> extends HttpClient
      * @request PUT:/user-password
      * @secure
      */
-    userPasswordUpdate: (data: UserResetPasswordRequest, params?: RequestParams) => Promise<import("./http-client").HttpResponse<void, any>>;
+    userPasswordUpdate: (data: UserResetPasswordRequest, params?: RequestParams) => Promise<import("axios").AxiosResponse<void>>;
 }

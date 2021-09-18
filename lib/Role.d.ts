@@ -10,7 +10,7 @@ export declare class Role<SecurityDataType = unknown> extends HttpClient<Securit
      * @request GET:/role/{id}
      * @secure
      */
-    roleDetail: (id: number, params?: RequestParams) => Promise<import("./http-client").HttpResponse<RoleResponse, any>>;
+    roleDetail: (id: number, params?: RequestParams) => Promise<import("axios").AxiosResponse<RoleResponse>>;
     /**
      * No description
      *
@@ -20,7 +20,7 @@ export declare class Role<SecurityDataType = unknown> extends HttpClient<Securit
      * @request PUT:/role/{id}
      * @secure
      */
-    roleUpdate: (id: number, data: UpdateRoleRequest, params?: RequestParams) => Promise<import("./http-client").HttpResponse<RoleResponse, any>>;
+    roleUpdate: (id: number, data: UpdateRoleRequest, params?: RequestParams) => Promise<import("axios").AxiosResponse<RoleResponse>>;
     /**
      * No description
      *
@@ -30,7 +30,7 @@ export declare class Role<SecurityDataType = unknown> extends HttpClient<Securit
      * @request DELETE:/role/{id}
      * @secure
      */
-    roleDelete: (id: number, params?: RequestParams) => Promise<import("./http-client").HttpResponse<void, any>>;
+    roleDelete: (id: number, params?: RequestParams) => Promise<import("axios").AxiosResponse<void>>;
     /**
      * No description
      *
@@ -40,5 +40,5 @@ export declare class Role<SecurityDataType = unknown> extends HttpClient<Securit
      * @request POST:/role
      * @secure
      */
-    roleCreate: (data: CreateRoleRequest, params?: RequestParams) => Promise<import("./http-client").HttpResponse<CreateRoleResponse, any>>;
+    roleCreate: (data: CreateRoleRequest, params?: RequestParams) => Promise<import("axios").AxiosResponse<CreateRoleResponse>>;
 }

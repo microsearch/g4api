@@ -10,7 +10,7 @@ export declare class Auth<SecurityDataType = unknown> extends HttpClient<Securit
      * @request POST:/auth
      * @secure
      */
-    authCreate: (data: UserAuthenticationRequest, params?: RequestParams) => Promise<import("./http-client").HttpResponse<UserAuthenticationResponse, any>>;
+    authCreate: (data: UserAuthenticationRequest, params?: RequestParams) => Promise<import("axios").AxiosResponse<UserAuthenticationResponse>>;
     /**
      * No description
      *
@@ -20,5 +20,5 @@ export declare class Auth<SecurityDataType = unknown> extends HttpClient<Securit
      * @request GET:/auth
      * @secure
      */
-    authList: (params?: RequestParams) => Promise<import("./http-client").HttpResponse<RefreshResponse, any>>;
+    authList: (params?: RequestParams) => Promise<import("axios").AxiosResponse<RefreshResponse>>;
 }

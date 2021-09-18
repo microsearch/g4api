@@ -10,7 +10,7 @@ export declare class Session<SecurityDataType = unknown> extends HttpClient<Secu
      * @request POST:/session
      * @secure
      */
-    sessionCreate: (data: CreateSessionRequest, params?: RequestParams) => Promise<import("./http-client").HttpResponse<AuthenticatedSessionResponse, any>>;
+    sessionCreate: (data: CreateSessionRequest, params?: RequestParams) => Promise<import("axios").AxiosResponse<AuthenticatedSessionResponse>>;
     /**
      * No description
      *
@@ -20,7 +20,7 @@ export declare class Session<SecurityDataType = unknown> extends HttpClient<Secu
      * @request GET:/session/{id}
      * @secure
      */
-    sessionDetail: (id: string, params?: RequestParams) => Promise<import("./http-client").HttpResponse<GetSessionResponse, any>>;
+    sessionDetail: (id: string, params?: RequestParams) => Promise<import("axios").AxiosResponse<GetSessionResponse>>;
     /**
      * No description
      *
@@ -30,7 +30,7 @@ export declare class Session<SecurityDataType = unknown> extends HttpClient<Secu
      * @request PUT:/session/{id}
      * @secure
      */
-    sessionUpdate: (id: string, data: any, params?: RequestParams) => Promise<import("./http-client").HttpResponse<void, any>>;
+    sessionUpdate: (id: string, data: any, params?: RequestParams) => Promise<import("axios").AxiosResponse<void>>;
     /**
      * No description
      *
@@ -40,5 +40,5 @@ export declare class Session<SecurityDataType = unknown> extends HttpClient<Secu
      * @request DELETE:/session/{id}
      * @secure
      */
-    sessionDelete: (id: string, params?: RequestParams) => Promise<import("./http-client").HttpResponse<void, any>>;
+    sessionDelete: (id: string, params?: RequestParams) => Promise<import("axios").AxiosResponse<void>>;
 }

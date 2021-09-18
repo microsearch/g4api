@@ -12,5 +12,5 @@ export declare class UserClaimTokens<SecurityDataType = unknown> extends HttpCli
      */
     userClaimTokensList: (query?: {
         email?: string | undefined;
-    } | undefined, params?: RequestParams) => Promise<import("./http-client").HttpResponse<SecurityToken[], any>>;
+    } | undefined, params?: RequestParams) => Promise<import("axios").AxiosResponse<SecurityToken[]>>;
 }

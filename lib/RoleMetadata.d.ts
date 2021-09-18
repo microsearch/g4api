@@ -11,7 +11,7 @@ export declare class RoleMetadata<SecurityDataType = unknown> extends HttpClient
      */
     roleMetadataDetail: (id: number, query?: {
         app?: string | undefined;
-    } | undefined, params?: RequestParams) => Promise<import("./http-client").HttpResponse<Record<string, any>, any>>;
+    } | undefined, params?: RequestParams) => Promise<import("axios").AxiosResponse<Record<string, any>>>;
     /**
      * No description
      *
@@ -23,5 +23,5 @@ export declare class RoleMetadata<SecurityDataType = unknown> extends HttpClient
      */
     roleMetadataUpdate: (id: number, data: Record<string, any>, query?: {
         app?: string | undefined;
-    } | undefined, params?: RequestParams) => Promise<import("./http-client").HttpResponse<void, any>>;
+    } | undefined, params?: RequestParams) => Promise<import("axios").AxiosResponse<void>>;
 }

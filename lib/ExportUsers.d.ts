@@ -10,5 +10,5 @@ export declare class ExportUsers<SecurityDataType = unknown> extends HttpClient<
      * @request POST:/export-users
      * @secure
      */
-    exportUsersCreate: (params?: RequestParams) => Promise<import("./http-client").HttpResponse<ExportUsersResponse, any>>;
+    exportUsersCreate: (params?: RequestParams) => Promise<import("axios").AxiosResponse<ExportUsersResponse>>;
 }

@@ -11,5 +11,5 @@ export declare class Document<SecurityDataType = unknown> extends HttpClient<Sec
      */
     documentCreate: (id: number, query?: {
         jobid?: string | undefined;
-    } | undefined, params?: RequestParams) => Promise<import("./http-client").HttpResponse<void, any>>;
+    } | undefined, params?: RequestParams) => Promise<import("axios").AxiosResponse<void>>;
 }

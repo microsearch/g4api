@@ -10,5 +10,5 @@ export declare class Policy<SecurityDataType = unknown> extends HttpClient<Secur
      * @request GET:/policy/password
      * @secure
      */
-    passwordList: (params?: RequestParams) => Promise<import("./http-client").HttpResponse<PasswordPolicy, any>>;
+    passwordList: (params?: RequestParams) => Promise<import("axios").AxiosResponse<PasswordPolicy>>;
 }

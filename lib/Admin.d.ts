@@ -10,5 +10,5 @@ export declare class Admin<SecurityDataType = unknown> extends HttpClient<Securi
      * @request POST:/admin
      * @secure
      */
-    adminCreate: (data: CreateAdminRequest, params?: RequestParams) => Promise<import("./http-client").HttpResponse<CreateAdminResponse, any>>;
+    adminCreate: (data: CreateAdminRequest, params?: RequestParams) => Promise<import("axios").AxiosResponse<CreateAdminResponse>>;
 }

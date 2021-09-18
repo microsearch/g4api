@@ -10,7 +10,7 @@ export declare class User<SecurityDataType = unknown> extends HttpClient<Securit
      * @request GET:/user/{id}
      * @secure
      */
-    userDetail: (id: number, params?: RequestParams) => Promise<import("./http-client").HttpResponse<GetUserResponse, any>>;
+    userDetail: (id: number, params?: RequestParams) => Promise<import("axios").AxiosResponse<GetUserResponse>>;
     /**
      * No description
      *
@@ -20,7 +20,7 @@ export declare class User<SecurityDataType = unknown> extends HttpClient<Securit
      * @request PUT:/user/{id}
      * @secure
      */
-    userUpdate: (id: number, data: UpdateUserRequest, params?: RequestParams) => Promise<import("./http-client").HttpResponse<UpdateUserResponse, any>>;
+    userUpdate: (id: number, data: UpdateUserRequest, params?: RequestParams) => Promise<import("axios").AxiosResponse<UpdateUserResponse>>;
     /**
      * No description
      *
@@ -30,7 +30,7 @@ export declare class User<SecurityDataType = unknown> extends HttpClient<Securit
      * @request DELETE:/user/{id}
      * @secure
      */
-    userDelete: (id: number, params?: RequestParams) => Promise<import("./http-client").HttpResponse<void, any>>;
+    userDelete: (id: number, params?: RequestParams) => Promise<import("axios").AxiosResponse<void>>;
     /**
      * No description
      *
@@ -40,5 +40,5 @@ export declare class User<SecurityDataType = unknown> extends HttpClient<Securit
      * @request POST:/user
      * @secure
      */
-    userCreate: (data: CreateUserRequest, params?: RequestParams) => Promise<import("./http-client").HttpResponse<CreateUserResponse, any>>;
+    userCreate: (data: CreateUserRequest, params?: RequestParams) => Promise<import("axios").AxiosResponse<CreateUserResponse>>;
 }
