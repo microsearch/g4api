@@ -1,11 +1,11 @@
 {
   "name": "g4api",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
-    "generate": "npx swagger-typescript-api -p https://g4-dev.v1.mrcapi.net/swagger/v1/swagger.json --clean-output --output src --modular; npx ctix ./tsconfig.json"
+    "generate": "npx swagger-typescript-api -p https://g4-dev.v1.mrcapi.net/swagger/v1/swagger.json --clean-output --output src --modular --axios; npx ctix ./tsconfig.json"
   },
   "keywords": [],
   "author": "Ferruccio Barletta (ferruccio.barletta@gmail.com)",
