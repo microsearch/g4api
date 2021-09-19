@@ -21,11 +21,11 @@ not sure if NPM supports direct imports from anything other than GitHub.
 
 Once, you've set up your node or browser project you can add g4api-ts to its dependencies using:
 
-    `npm install --save https://github.com/microsearch/g4api/tarball/1.3.4`
+    `npm install --save https://github.com/microsearch/g4api-ts/tarball/v1.3.4`
 
 to get a specific version of the API or
 
-    `npm install --save https://github.com/microsearch/g4api`
+    `npm install --save https://github.com/microsearch/g4api-ts`
 
 if you want to live on the edge.
 
@@ -74,6 +74,6 @@ Procedure to update g4api-ts when the G4 Service API has changed.
 1. `git clean -fxd`
 1. `npm run generate`
 1. Commit changes. i.e. `git commit -am "blah blah blah"`
-1. Create a tag which matches the new version in `package.json`. i.e. `git tag 1.3.4`
+1. Create a tag which matches the new version in `package.json`. i.e. `git tag v1.3.4`
 1. `git push`
 1. `git push --tags`
