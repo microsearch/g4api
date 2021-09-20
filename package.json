@@ -1,5 +1,5 @@
 {
-  "name": "g4api",
+  "name": "g4api-ts",
   "version": "v1.3.4",
   "description": "",
   "main": "lib/index.js",
