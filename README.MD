@@ -26,17 +26,13 @@ and local storage.
 
 Once, you've set up your node or browser project you can add g4api-ts to its dependencies using:
 
-    npm install --save https://github.com/microsearch/g4api-ts/tarball/v1.3.4
+    npm install --save github:microsearch/g4api-ts#v1.3.4
 
 to get a specific version of the API or
 
-    npm install --save https://github.com/microsearch/g4api-ts
+    npm install --save github:microsearch/g4api-ts
 
 if you want to live on the edge.
-
-NB: If you want to update the version of g4api-ts you're using later, you need
-to delete the `node_modules` directory before running `npm install`. NPM does
-seem to track the version when using this import method.
 
 ## sample code
 
