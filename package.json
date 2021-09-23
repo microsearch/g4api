@@ -1,7 +1,7 @@
 {
   "name": "g4api-ts",
   "version": "v1.3.4",
-  "description": "",
+  "description": "G4 API bindings for TypeScript",
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
@@ -10,7 +10,7 @@
   },
   "keywords": [],
   "author": "Ferruccio Barletta (ferruccio.barletta@gmail.com)",
-  "license": "UNLICENSED",
+  "license": "",
   "devDependencies": {
     "ctix": "^0.3.1",
     "swagger-typescript-api": "^9.2.0",
