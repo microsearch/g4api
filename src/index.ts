@@ -26,6 +26,7 @@ export * from './Tenants';
 export * from './User';
 export * from './UserClaim';
 export * from './UserClaimTokens';
+export * from './UserDetails';
 export * from './UserEvents';
 export * from './UserImport';
 export * from './UserMetadata';

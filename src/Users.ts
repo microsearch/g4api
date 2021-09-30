@@ -9,7 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import { GetUsersRequest, GetUsersResponse } from "./data-contracts";
+import { GetUsersRequest, GetUsersWithAppMetadataResponse } from "./data-contracts";
 import { ContentType, HttpClient, RequestParams } from "./http-client";
 
 export class Users<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
@@ -26,7 +26,7 @@ export class Users<SecurityDataType = unknown> extends HttpClient<SecurityDataTy
     query?: { contains?: string; skip?: number; take?: number; archived?: boolean },
     params: RequestParams = {},
   ) =>
-    this.request<GetUsersResponse, any>({
+    this.request<GetUsersWithAppMetadataResponse, any>({
       path: `/users`,
       method: "GET",
       query: query,
@@ -44,7 +44,7 @@ export class Users<SecurityDataType = unknown> extends HttpClient<SecurityDataTy
    * @secure
    */
   usersCreate = (data: GetUsersRequest, params: RequestParams = {}) =>
-    this.request<GetUsersResponse, any>({
+    this.request<GetUsersWithAppMetadataResponse, any>({
       path: `/users`,
       method: "POST",
       body: data,

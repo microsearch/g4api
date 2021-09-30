@@ -74,6 +74,7 @@ Procedure to update g4api-ts when the G4 Service API has changed.
 1. Update `package.json` to reflect current G4 Service version on dev.
 1. `git clean -fxd`
 1. `npm run generate`
+1. Update version in `package.json`.
 1. Commit changes. i.e. `git commit -am "blah blah blah"`
 1. Create a tag which matches the new version in `package.json`. i.e. `git tag v1.3.4`
 1. `git push`

@@ -241,6 +241,26 @@ export interface GetTenantsResponse {
   tenants: GetTenantResponse[];
 }
 
+export interface GetUserDetailsResponse {
+  /** @format int32 */
+  id: number;
+
+  /** @format date-time */
+  created: string;
+  status: UserStatus;
+  username: string;
+  fullname: string;
+  email: string;
+  roles: number[];
+  profiles: number[];
+
+  /** @format date-time */
+  lastSeen?: string | null;
+  metadata: Record<string, Record<string, any>>;
+  roleNames: string[];
+  profileNames: string[];
+}
+
 export interface GetUserEventsRequest {
   /** @format int32 */
   userId?: number | null;
@@ -284,12 +304,13 @@ export interface GetUserResponse {
 
   /** @format date-time */
   lastSeen?: string | null;
-  metadata: Record<string, Record<string, any>>;
+  metadata: Record<string, any>;
   roleNames: string[];
   profileNames: string[];
 }
 
 export interface GetUsersRequest {
+  appName?: string | null;
   contains?: string | null;
 
   /** @format int32 */
@@ -300,7 +321,7 @@ export interface GetUsersRequest {
   archived?: boolean | null;
 }
 
-export interface GetUsersResponse {
+export interface GetUsersWithAppMetadataResponse {
   /** @format int32 */
   total: number;
   contains?: string | null;
@@ -311,7 +332,7 @@ export interface GetUsersResponse {
   /** @format int32 */
   take?: number | null;
   archived?: boolean | null;
-  users: UserWithMetadata[];
+  users: UserWithAppMetadata[];
 }
 
 export interface ImportUserRequest {
@@ -550,7 +571,7 @@ export interface UserResetPasswordRequest {
  */
 export type UserStatus = 0 | 1 | 2 | 3 | 4 | 5;
 
-export interface UserWithMetadata {
+export interface UserWithAppMetadata {
   /** @format int32 */
   id: number;
   status: UserStatus;
@@ -564,5 +585,5 @@ export interface UserWithMetadata {
 
   /** @format date-time */
   lastSeen?: string | null;
-  metadata: Record<string, Record<string, any>>;
+  metadata: Record<string, any>;
 }
