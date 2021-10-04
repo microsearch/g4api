@@ -539,15 +539,15 @@ export interface UserAuthenticationResponse {
   accessAllowed: boolean;
 
   /** @format int32 */
-  userId?: number | null;
-  username?: string | null;
-  fullname?: string | null;
-  email?: string | null;
-  bearer?: string | null;
-  claims?: string[] | null;
-  roles?: string[] | null;
-  profiles?: string[] | null;
-  version?: string | null;
+  userId: number;
+  username: string;
+  fullname: string;
+  email: string;
+  bearer: string;
+  claims: string[];
+  roles: string[];
+  profiles: string[];
+  version: string;
 }
 
 export interface UserClaimAccountRequest {
