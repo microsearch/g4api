@@ -29,17 +29,17 @@ export interface AdminUser {
 export interface AuthenticatedSessionResponse {
   validCredentials: boolean;
   accessAllowed: boolean;
-  sessionId?: string | null;
+  sessionId: string;
 
   /** @format int32 */
-  userId?: number | null;
-  username?: string | null;
-  fullname?: string | null;
-  email?: string | null;
-  bearer?: string | null;
-  claims?: string[] | null;
-  roles?: string[] | null;
-  profiles?: string[] | null;
+  userId: number;
+  username: string;
+  fullname: string;
+  email: string;
+  bearer: string;
+  claims: string[];
+  roles: string[];
+  profiles: string[];
   version: string;
 }
 
@@ -167,7 +167,7 @@ export interface ExportedUser {
   passwordHash: string;
 
   /** @format date-time */
-  archived?: string | null;
+  archived: string;
   metadata: Record<string, Record<string, any>>;
 }
 
@@ -212,7 +212,7 @@ export interface GetSessionResponse {
 
   /** @format int32 */
   userId: number;
-  data?: any;
+  data: any;
 }
 
 export interface GetTenantResponse {
@@ -222,7 +222,7 @@ export interface GetTenantResponse {
 
   /** @format date-time */
   created: string;
-  description?: string | null;
+  description: string;
 
   /** @format uuid */
   repository: string;
@@ -231,10 +231,10 @@ export interface GetTenantResponse {
   userEvents: Record<string, number>;
 
   /** @format date-time */
-  firstEvent?: string | null;
+  firstEvent: string;
 
   /** @format date-time */
-  lastEvent?: string | null;
+  lastEvent: string;
 }
 
 export interface GetTenantsResponse {
@@ -255,7 +255,7 @@ export interface GetUserDetailsResponse {
   profiles: number[];
 
   /** @format date-time */
-  lastSeen?: string | null;
+  lastSeen: string;
   metadata: Record<string, Record<string, any>>;
   roleNames: string[];
   profileNames: string[];
@@ -303,7 +303,7 @@ export interface GetUserResponse {
   profiles: number[];
 
   /** @format date-time */
-  lastSeen?: string | null;
+  lastSeen: string;
   metadata: Record<string, any>;
   roleNames: string[];
   profileNames: string[];
@@ -324,14 +324,14 @@ export interface GetUsersRequest {
 export interface GetUsersWithAppMetadataResponse {
   /** @format int32 */
   total: number;
-  contains?: string | null;
+  contains: string;
 
   /** @format int32 */
-  skip?: number | null;
+  skip: number;
 
   /** @format int32 */
-  take?: number | null;
-  archived?: boolean | null;
+  take: number;
+  archived: boolean;
   users: UserWithAppMetadata[];
 }
 
@@ -466,7 +466,7 @@ export interface RoleResponse {
 }
 
 export interface SecurityToken {
-  username?: string | null;
+  username: string;
   fullname: string;
   token: string;
 }
@@ -521,8 +521,8 @@ export interface UpdateUserResponse {
   denyCollections: number[];
 
   /** @format date-time */
-  lastSeen?: string | null;
-  metadata?: Record<string, any>;
+  lastSeen: string;
+  metadata: Record<string, any>;
 }
 
 export interface UserAuthenticationRequest {
