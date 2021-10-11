@@ -1,6 +1,6 @@
 {
   "name": "g4api-ts",
-  "version": "v1.4.1",
+  "version": "v1.4.2",
   "description": "G4 API bindings for TypeScript",
   "main": "lib/index.js",
   "scripts": {

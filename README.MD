@@ -44,7 +44,7 @@ const baseURL = "https://g4-dev.v1.mrcapi.net";
 async function authenticate(): Promise<g4.UserAuthenticationResponse> {
   const g4auth = new g4.Auth({ baseURL });
   // generated methods are async
-  const response = await g4auth.authCreate({
+  const response = await g4auth.post({
     username: "bender",
     password: "meatbag",
   });
@@ -58,7 +58,7 @@ async function authenticate(): Promise<g4.UserAuthenticationResponse> {
   console.log(auth.bearer);
 
   const g4tenants = new g4.Tenants({ baseURL });
-  const tenants = await g4tenants.tenantsList({
+  const tenants = await g4tenants.get({
     headers: { authorization: `bearer ${auth.bearer}` },
   });
   console.log(tenants.data.tenants);
