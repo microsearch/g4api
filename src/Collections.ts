@@ -17,11 +17,11 @@ export class Collections<SecurityDataType = unknown> extends HttpClient<Security
    * No description
    *
    * @tags Collections
-   * @name CollectionsList
+   * @name Get
    * @request GET:/collections
    * @secure
    */
-  collectionsList = (params: RequestParams = {}) =>
+  get = (params: RequestParams = {}) =>
     this.request<GetCollectionsResponse, any>({
       path: `/collections`,
       method: "GET",
@@ -33,11 +33,11 @@ export class Collections<SecurityDataType = unknown> extends HttpClient<Security
    * No description
    *
    * @tags Collections
-   * @name CollectionsCreate
+   * @name Post
    * @request POST:/collections
    * @secure
    */
-  collectionsCreate = (data: PostCollectionRequest, params: RequestParams = {}) =>
+  post = (data: PostCollectionRequest, params: RequestParams = {}) =>
     this.request<PostCollectionResponse, any>({
       path: `/collections`,
       method: "POST",

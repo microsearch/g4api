@@ -17,12 +17,12 @@ export class Session<SecurityDataType = unknown> extends HttpClient<SecurityData
    * No description
    *
    * @tags Sessions
-   * @name SessionCreate
+   * @name Post
    * @summary Create a persistent session
    * @request POST:/session
    * @secure
    */
-  sessionCreate = (data: CreateSessionRequest, params: RequestParams = {}) =>
+  post = (data: CreateSessionRequest, params: RequestParams = {}) =>
     this.request<AuthenticatedSessionResponse, any>({
       path: `/session`,
       method: "POST",
@@ -36,12 +36,12 @@ export class Session<SecurityDataType = unknown> extends HttpClient<SecurityData
    * No description
    *
    * @tags Sessions
-   * @name SessionDetail
+   * @name Get
    * @summary Get session
    * @request GET:/session/{id}
    * @secure
    */
-  sessionDetail = (id: string, params: RequestParams = {}) =>
+  get = (id: string, params: RequestParams = {}) =>
     this.request<GetSessionResponse, any>({
       path: `/session/${id}`,
       method: "GET",
@@ -53,12 +53,12 @@ export class Session<SecurityDataType = unknown> extends HttpClient<SecurityData
    * No description
    *
    * @tags Sessions
-   * @name SessionUpdate
+   * @name Put
    * @summary Update session data
    * @request PUT:/session/{id}
    * @secure
    */
-  sessionUpdate = (id: string, data: any, params: RequestParams = {}) =>
+  put = (id: string, data: any, params: RequestParams = {}) =>
     this.request<void, any>({
       path: `/session/${id}`,
       method: "PUT",
@@ -71,12 +71,12 @@ export class Session<SecurityDataType = unknown> extends HttpClient<SecurityData
    * No description
    *
    * @tags Sessions
-   * @name SessionDelete
+   * @name Delete
    * @summary Delete session
    * @request DELETE:/session/{id}
    * @secure
    */
-  sessionDelete = (id: string, params: RequestParams = {}) =>
+  delete = (id: string, params: RequestParams = {}) =>
     this.request<void, any>({
       path: `/session/${id}`,
       method: "DELETE",

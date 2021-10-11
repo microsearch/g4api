@@ -17,12 +17,12 @@ export class ExportUsers<SecurityDataType = unknown> extends HttpClient<Security
    * No description
    *
    * @tags ImportExport
-   * @name ExportUsersCreate
+   * @name Post
    * @summary Export users
    * @request POST:/export-users
    * @secure
    */
-  exportUsersCreate = (params: RequestParams = {}) =>
+  post = (params: RequestParams = {}) =>
     this.request<ExportUsersResponse, any>({
       path: `/export-users`,
       method: "POST",

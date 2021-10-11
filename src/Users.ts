@@ -17,15 +17,12 @@ export class Users<SecurityDataType = unknown> extends HttpClient<SecurityDataTy
    * @description Returns the list of user records which match the specified (optional) criteria.
    *
    * @tags Users
-   * @name UsersList
+   * @name Get
    * @summary Get user list (DEPRECATED: use POST /users instead)
    * @request GET:/users
    * @secure
    */
-  usersList = (
-    query?: { contains?: string; skip?: number; take?: number; archived?: boolean },
-    params: RequestParams = {},
-  ) =>
+  get = (query?: { contains?: string; skip?: number; take?: number; archived?: boolean }, params: RequestParams = {}) =>
     this.request<GetUsersWithAppMetadataResponse, any>({
       path: `/users`,
       method: "GET",
@@ -38,12 +35,12 @@ export class Users<SecurityDataType = unknown> extends HttpClient<SecurityDataTy
    * @description Returns the list of user records which match the specified (optional) criteria.
    *
    * @tags Users
-   * @name UsersCreate
+   * @name Post
    * @summary Get user list
    * @request POST:/users
    * @secure
    */
-  usersCreate = (data: GetUsersRequest, params: RequestParams = {}) =>
+  post = (data: GetUsersRequest, params: RequestParams = {}) =>
     this.request<GetUsersWithAppMetadataResponse, any>({
       path: `/users`,
       method: "POST",

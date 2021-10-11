@@ -17,12 +17,12 @@ export class Tenants<SecurityDataType = unknown> extends HttpClient<SecurityData
    * No description
    *
    * @tags Tenants
-   * @name TenantsList
+   * @name Get
    * @summary Get tenant list
    * @request GET:/tenants
    * @secure
    */
-  tenantsList = (params: RequestParams = {}) =>
+  get = (params: RequestParams = {}) =>
     this.request<GetTenantsResponse, any>({
       path: `/tenants`,
       method: "GET",
@@ -34,12 +34,12 @@ export class Tenants<SecurityDataType = unknown> extends HttpClient<SecurityData
    * No description
    *
    * @tags Tenants
-   * @name TenantsDelete
+   * @name Delete
    * @summary Purge archived tenants
    * @request DELETE:/tenants
    * @secure
    */
-  tenantsDelete = (query?: { days?: number }, params: RequestParams = {}) =>
+  delete = (query?: { days?: number }, params: RequestParams = {}) =>
     this.request<void, any>({
       path: `/tenants`,
       method: "DELETE",

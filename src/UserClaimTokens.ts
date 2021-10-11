@@ -17,12 +17,12 @@ export class UserClaimTokens<SecurityDataType = unknown> extends HttpClient<Secu
    * No description
    *
    * @tags Internal
-   * @name UserClaimTokensList
+   * @name Get
    * @summary Request user claim tokens
    * @request GET:/user-claim-tokens
    * @secure
    */
-  userClaimTokensList = (query?: { email?: string }, params: RequestParams = {}) =>
+  get = (query?: { email?: string }, params: RequestParams = {}) =>
     this.request<SecurityToken[], any>({
       path: `/user-claim-tokens`,
       method: "GET",

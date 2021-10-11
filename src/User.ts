@@ -23,12 +23,12 @@ export class User<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * No description
    *
    * @tags Users
-   * @name UserDetail
+   * @name Get
    * @summary Get user by user id
    * @request GET:/user/{id}
    * @secure
    */
-  userDetail = (id: number, params: RequestParams = {}) =>
+  get = (id: number, params: RequestParams = {}) =>
     this.request<GetUserResponse, any>({
       path: `/user/${id}`,
       method: "GET",
@@ -40,12 +40,12 @@ export class User<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * No description
    *
    * @tags Users
-   * @name UserUpdate
+   * @name Put
    * @summary Update existing user
    * @request PUT:/user/{id}
    * @secure
    */
-  userUpdate = (id: number, data: UpdateUserRequest, params: RequestParams = {}) =>
+  put = (id: number, data: UpdateUserRequest, params: RequestParams = {}) =>
     this.request<UpdateUserResponse, any>({
       path: `/user/${id}`,
       method: "PUT",
@@ -59,12 +59,12 @@ export class User<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * No description
    *
    * @tags Users
-   * @name UserDelete
+   * @name Delete
    * @summary Archive a user
    * @request DELETE:/user/{id}
    * @secure
    */
-  userDelete = (id: number, params: RequestParams = {}) =>
+  delete = (id: number, params: RequestParams = {}) =>
     this.request<void, any>({
       path: `/user/${id}`,
       method: "DELETE",
@@ -75,12 +75,12 @@ export class User<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * No description
    *
    * @tags Users
-   * @name UserCreate
+   * @name Post
    * @summary Create new user
    * @request POST:/user
    * @secure
    */
-  userCreate = (data: CreateUserRequest, params: RequestParams = {}) =>
+  post = (data: CreateUserRequest, params: RequestParams = {}) =>
     this.request<CreateUserResponse, any>({
       path: `/user`,
       method: "POST",

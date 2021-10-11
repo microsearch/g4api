@@ -16,12 +16,12 @@ export class UserMetadata<SecurityDataType = unknown> extends HttpClient<Securit
    * No description
    *
    * @tags Users
-   * @name UserMetadataDetail
+   * @name Get
    * @summary Get user metadata
    * @request GET:/user-metadata/{id}
    * @secure
    */
-  userMetadataDetail = (id: number, query?: { app?: string }, params: RequestParams = {}) =>
+  get = (id: number, query?: { app?: string }, params: RequestParams = {}) =>
     this.request<Record<string, any>, any>({
       path: `/user-metadata/${id}`,
       method: "GET",
@@ -34,12 +34,12 @@ export class UserMetadata<SecurityDataType = unknown> extends HttpClient<Securit
    * No description
    *
    * @tags Users
-   * @name UserMetadataUpdate
+   * @name Put
    * @summary Set user metadata
    * @request PUT:/user-metadata/{id}
    * @secure
    */
-  userMetadataUpdate = (id: number, data: Record<string, any>, query?: { app?: string }, params: RequestParams = {}) =>
+  put = (id: number, data: Record<string, any>, query?: { app?: string }, params: RequestParams = {}) =>
     this.request<void, any>({
       path: `/user-metadata/${id}`,
       method: "PUT",

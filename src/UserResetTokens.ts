@@ -17,12 +17,12 @@ export class UserResetTokens<SecurityDataType = unknown> extends HttpClient<Secu
    * No description
    *
    * @tags Internal
-   * @name UserResetTokensList
+   * @name Get
    * @summary Request user password reset tokens
    * @request GET:/user-reset-tokens
    * @secure
    */
-  userResetTokensList = (query?: { email?: string }, params: RequestParams = {}) =>
+  get = (query?: { email?: string }, params: RequestParams = {}) =>
     this.request<SecurityToken[], any>({
       path: `/user-reset-tokens`,
       method: "GET",

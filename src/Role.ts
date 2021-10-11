@@ -17,12 +17,12 @@ export class Role<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * No description
    *
    * @tags Roles
-   * @name RoleDetail
+   * @name Get
    * @summary Get a role by id
    * @request GET:/role/{id}
    * @secure
    */
-  roleDetail = (id: number, params: RequestParams = {}) =>
+  get = (id: number, params: RequestParams = {}) =>
     this.request<RoleResponse, any>({
       path: `/role/${id}`,
       method: "GET",
@@ -34,12 +34,12 @@ export class Role<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * No description
    *
    * @tags Roles
-   * @name RoleUpdate
+   * @name Put
    * @summary Update a role
    * @request PUT:/role/{id}
    * @secure
    */
-  roleUpdate = (id: number, data: UpdateRoleRequest, params: RequestParams = {}) =>
+  put = (id: number, data: UpdateRoleRequest, params: RequestParams = {}) =>
     this.request<RoleResponse, any>({
       path: `/role/${id}`,
       method: "PUT",
@@ -53,12 +53,12 @@ export class Role<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * No description
    *
    * @tags Roles
-   * @name RoleDelete
+   * @name Delete
    * @summary Archive a role
    * @request DELETE:/role/{id}
    * @secure
    */
-  roleDelete = (id: number, params: RequestParams = {}) =>
+  delete = (id: number, params: RequestParams = {}) =>
     this.request<void, any>({
       path: `/role/${id}`,
       method: "DELETE",
@@ -69,12 +69,12 @@ export class Role<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * No description
    *
    * @tags Roles
-   * @name RoleCreate
+   * @name Post
    * @summary Create a new role
    * @request POST:/role
    * @secure
    */
-  roleCreate = (data: CreateRoleRequest, params: RequestParams = {}) =>
+  post = (data: CreateRoleRequest, params: RequestParams = {}) =>
     this.request<CreateRoleResponse, any>({
       path: `/role`,
       method: "POST",

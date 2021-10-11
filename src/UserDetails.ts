@@ -17,12 +17,12 @@ export class UserDetails<SecurityDataType = unknown> extends HttpClient<Security
    * No description
    *
    * @tags Internal
-   * @name UserDetailsDetail
+   * @name Get
    * @summary Get user details by user id
    * @request GET:/user-details/{id}
    * @secure
    */
-  userDetailsDetail = (id: number, params: RequestParams = {}) =>
+  get = (id: number, params: RequestParams = {}) =>
     this.request<GetUserDetailsResponse, any>({
       path: `/user-details/${id}`,
       method: "GET",

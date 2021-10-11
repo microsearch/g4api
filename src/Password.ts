@@ -17,12 +17,12 @@ export class Password<SecurityDataType = unknown> extends HttpClient<SecurityDat
    * No description
    *
    * @tags Authentication
-   * @name PasswordUpdate
+   * @name Put
    * @summary Change password
    * @request PUT:/password
    * @secure
    */
-  passwordUpdate = (data: PasswordChangeRequest, params: RequestParams = {}) =>
+  put = (data: PasswordChangeRequest, params: RequestParams = {}) =>
     this.request<void, any>({
       path: `/password`,
       method: "PUT",

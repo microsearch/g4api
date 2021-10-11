@@ -16,12 +16,12 @@ export class Sync<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * No description
    *
    * @tags Authentication
-   * @name SyncCreate
+   * @name Post
    * @summary Process any pending G3 account synchronization requests
    * @request POST:/sync
    * @secure
    */
-  syncCreate = (params: RequestParams = {}) =>
+  post = (params: RequestParams = {}) =>
     this.request<void, any>({
       path: `/sync`,
       method: "POST",

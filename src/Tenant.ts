@@ -17,12 +17,12 @@ export class Tenant<SecurityDataType = unknown> extends HttpClient<SecurityDataT
    * No description
    *
    * @tags Tenants
-   * @name TenantDetail
+   * @name Get
    * @summary Get tenant by id
    * @request GET:/tenant/{id}
    * @secure
    */
-  tenantDetail = (id: number, params: RequestParams = {}) =>
+  get = (id: number, params: RequestParams = {}) =>
     this.request<GetTenantResponse, any>({
       path: `/tenant/${id}`,
       method: "GET",
@@ -34,12 +34,12 @@ export class Tenant<SecurityDataType = unknown> extends HttpClient<SecurityDataT
    * No description
    *
    * @tags Tenants
-   * @name TenantDelete
+   * @name Delete
    * @summary Archive a tenant
    * @request DELETE:/tenant/{id}
    * @secure
    */
-  tenantDelete = (id: number, params: RequestParams = {}) =>
+  delete = (id: number, params: RequestParams = {}) =>
     this.request<void, any>({
       path: `/tenant/${id}`,
       method: "DELETE",
@@ -50,12 +50,12 @@ export class Tenant<SecurityDataType = unknown> extends HttpClient<SecurityDataT
    * No description
    *
    * @tags Tenants
-   * @name TenantCreate
+   * @name Post
    * @summary Create a new tenant
    * @request POST:/tenant
    * @secure
    */
-  tenantCreate = (data: CreateTenantRequest, params: RequestParams = {}) =>
+  post = (data: CreateTenantRequest, params: RequestParams = {}) =>
     this.request<CreateTenantResponse, any>({
       path: `/tenant`,
       method: "POST",

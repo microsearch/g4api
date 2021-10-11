@@ -17,12 +17,12 @@ export class Admins<SecurityDataType = unknown> extends HttpClient<SecurityDataT
    * @description Returns the list of all admin user records.
    *
    * @tags Admins
-   * @name AdminsList
+   * @name Get
    * @summary Get admin user list
    * @request GET:/admins
    * @secure
    */
-  adminsList = (params: RequestParams = {}) =>
+  get = (params: RequestParams = {}) =>
     this.request<GetAdminsResponse, any>({
       path: `/admins`,
       method: "GET",

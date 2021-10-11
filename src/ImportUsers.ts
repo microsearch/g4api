@@ -17,12 +17,12 @@ export class ImportUsers<SecurityDataType = unknown> extends HttpClient<Security
    * No description
    *
    * @tags ImportExport
-   * @name ImportUsersCreate
+   * @name Post
    * @summary Import users
    * @request POST:/import-users
    * @secure
    */
-  importUsersCreate = (data: ImportUsersRequest, params: RequestParams = {}) =>
+  post = (data: ImportUsersRequest, params: RequestParams = {}) =>
     this.request<ImportUsersResponse, any>({
       path: `/import-users`,
       method: "POST",

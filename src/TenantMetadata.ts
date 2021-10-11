@@ -16,12 +16,12 @@ export class TenantMetadata<SecurityDataType = unknown> extends HttpClient<Secur
    * No description
    *
    * @tags Users
-   * @name TenantMetadataList
+   * @name Get
    * @summary Get tenant metadata
    * @request GET:/tenant-metadata
    * @secure
    */
-  tenantMetadataList = (query?: { app?: string }, params: RequestParams = {}) =>
+  get = (query?: { app?: string }, params: RequestParams = {}) =>
     this.request<Record<string, any>, any>({
       path: `/tenant-metadata`,
       method: "GET",
@@ -34,12 +34,12 @@ export class TenantMetadata<SecurityDataType = unknown> extends HttpClient<Secur
    * No description
    *
    * @tags Users
-   * @name TenantMetadataUpdate
+   * @name Put
    * @summary Set tenant metadata
    * @request PUT:/tenant-metadata
    * @secure
    */
-  tenantMetadataUpdate = (data: Record<string, any>, query?: { app?: string }, params: RequestParams = {}) =>
+  put = (data: Record<string, any>, query?: { app?: string }, params: RequestParams = {}) =>
     this.request<void, any>({
       path: `/tenant-metadata`,
       method: "PUT",

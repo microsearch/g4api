@@ -17,12 +17,12 @@ export class UserEvents<SecurityDataType = unknown> extends HttpClient<SecurityD
    * @description Returns a list of user events.
    *
    * @tags Users
-   * @name UserEventsCreate
+   * @name Post
    * @summary Get user events
    * @request POST:/user-events
    * @secure
    */
-  userEventsCreate = (data: GetUserEventsRequest, params: RequestParams = {}) =>
+  post = (data: GetUserEventsRequest, params: RequestParams = {}) =>
     this.request<GetUserEventsResponse, any>({
       path: `/user-events`,
       method: "POST",

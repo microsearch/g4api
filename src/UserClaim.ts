@@ -17,12 +17,12 @@ export class UserClaim<SecurityDataType = unknown> extends HttpClient<SecurityDa
    * No description
    *
    * @tags Internal
-   * @name UserClaimUpdate
+   * @name Put
    * @summary Assign credentials to an anonymous account
    * @request PUT:/user-claim
    * @secure
    */
-  userClaimUpdate = (data: UserClaimAccountRequest, params: RequestParams = {}) =>
+  put = (data: UserClaimAccountRequest, params: RequestParams = {}) =>
     this.request<void, any>({
       path: `/user-claim`,
       method: "PUT",

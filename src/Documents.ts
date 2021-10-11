@@ -17,12 +17,12 @@ export class Documents<SecurityDataType = unknown> extends HttpClient<SecurityDa
    * No description
    *
    * @tags Documents
-   * @name DocumentsCreate
+   * @name Post
    * @summary Prepare for document upload
    * @request POST:/documents
    * @secure
    */
-  documentsCreate = (data: LoadDocumentRequest, params: RequestParams = {}) =>
+  post = (data: LoadDocumentRequest, params: RequestParams = {}) =>
     this.request<LoadDocumentResponse, any>({
       path: `/documents`,
       method: "POST",

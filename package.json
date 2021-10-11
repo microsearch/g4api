@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "install": "npm run build",
-    "generate": "npm ci; swagger-typescript-api -p https://g4-dev.v1.mrcapi.net/swagger/v1/swagger.json --clean-output --output src --modular --axios; ctix ./tsconfig.json; tsc; typedoc src/index.ts"
+    "generate": "./generate.sh"
   },
   "keywords": [],
   "author": "Ferruccio Barletta (ferruccio.barletta@gmail.com)",

@@ -17,12 +17,12 @@ export class Roles<SecurityDataType = unknown> extends HttpClient<SecurityDataTy
    * No description
    *
    * @tags Roles
-   * @name RolesDetail
+   * @name GetScope
    * @summary Get role list for a tenant and scope
    * @request GET:/roles/{scope}
    * @secure
    */
-  rolesDetail = (scope: string, params: RequestParams = {}) =>
+  getScope = (scope: string, params: RequestParams = {}) =>
     this.request<GetRolesResponse, any>({
       path: `/roles/${scope}`,
       method: "GET",
@@ -34,12 +34,12 @@ export class Roles<SecurityDataType = unknown> extends HttpClient<SecurityDataTy
    * No description
    *
    * @tags Roles
-   * @name RolesList
+   * @name Get
    * @summary Get role list for a tenant
    * @request GET:/roles
    * @secure
    */
-  rolesList = (params: RequestParams = {}) =>
+  get = (params: RequestParams = {}) =>
     this.request<GetRolesResponse, any>({
       path: `/roles`,
       method: "GET",

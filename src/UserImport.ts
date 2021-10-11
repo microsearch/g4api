@@ -17,12 +17,12 @@ export class UserImport<SecurityDataType = unknown> extends HttpClient<SecurityD
    * No description
    *
    * @tags Users
-   * @name UserImportCreate
+   * @name Post
    * @summary Import a new user (DEPRECATED: use POST /import-users instead)
    * @request POST:/user-import
    * @secure
    */
-  userImportCreate = (data: ImportUserRequest, params: RequestParams = {}) =>
+  post = (data: ImportUserRequest, params: RequestParams = {}) =>
     this.request<ImportUserResponse, any>({
       path: `/user-import`,
       method: "POST",

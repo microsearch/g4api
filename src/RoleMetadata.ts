@@ -16,12 +16,12 @@ export class RoleMetadata<SecurityDataType = unknown> extends HttpClient<Securit
    * No description
    *
    * @tags Roles
-   * @name RoleMetadataDetail
+   * @name Get
    * @summary Get role metadata
    * @request GET:/role-metadata/{id}
    * @secure
    */
-  roleMetadataDetail = (id: number, query?: { app?: string }, params: RequestParams = {}) =>
+  get = (id: number, query?: { app?: string }, params: RequestParams = {}) =>
     this.request<Record<string, any>, any>({
       path: `/role-metadata/${id}`,
       method: "GET",
@@ -34,12 +34,12 @@ export class RoleMetadata<SecurityDataType = unknown> extends HttpClient<Securit
    * No description
    *
    * @tags Roles
-   * @name RoleMetadataUpdate
+   * @name Put
    * @summary Set role metadata
    * @request PUT:/role-metadata/{id}
    * @secure
    */
-  roleMetadataUpdate = (id: number, data: Record<string, any>, query?: { app?: string }, params: RequestParams = {}) =>
+  put = (id: number, data: Record<string, any>, query?: { app?: string }, params: RequestParams = {}) =>
     this.request<void, any>({
       path: `/role-metadata/${id}`,
       method: "PUT",

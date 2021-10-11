@@ -16,12 +16,12 @@ export class ProfileMetadata<SecurityDataType = unknown> extends HttpClient<Secu
    * No description
    *
    * @tags Profiles
-   * @name ProfileMetadataDetail
+   * @name Get
    * @summary Get profile metadata
    * @request GET:/profile-metadata/{id}
    * @secure
    */
-  profileMetadataDetail = (id: number, query?: { app?: string }, params: RequestParams = {}) =>
+  get = (id: number, query?: { app?: string }, params: RequestParams = {}) =>
     this.request<Record<string, any>, any>({
       path: `/profile-metadata/${id}`,
       method: "GET",
@@ -34,17 +34,12 @@ export class ProfileMetadata<SecurityDataType = unknown> extends HttpClient<Secu
    * No description
    *
    * @tags Profiles
-   * @name ProfileMetadataUpdate
+   * @name Put
    * @summary Set profile metadata
    * @request PUT:/profile-metadata/{id}
    * @secure
    */
-  profileMetadataUpdate = (
-    id: number,
-    data: Record<string, any>,
-    query?: { app?: string },
-    params: RequestParams = {},
-  ) =>
+  put = (id: number, data: Record<string, any>, query?: { app?: string }, params: RequestParams = {}) =>
     this.request<void, any>({
       path: `/profile-metadata/${id}`,
       method: "PUT",

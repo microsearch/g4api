@@ -17,12 +17,12 @@ export class Profiles<SecurityDataType = unknown> extends HttpClient<SecurityDat
    * No description
    *
    * @tags Profiles
-   * @name ProfilesList
+   * @name Get
    * @summary Get profile list for a tenant
    * @request GET:/profiles
    * @secure
    */
-  profilesList = (params: RequestParams = {}) =>
+  get = (params: RequestParams = {}) =>
     this.request<GetProfilesResponse, any>({
       path: `/profiles`,
       method: "GET",

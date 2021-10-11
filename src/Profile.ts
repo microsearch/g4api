@@ -23,12 +23,12 @@ export class Profile<SecurityDataType = unknown> extends HttpClient<SecurityData
    * No description
    *
    * @tags Profiles
-   * @name ProfileDetail
+   * @name Get
    * @summary Get a profile by id
    * @request GET:/profile/{id}
    * @secure
    */
-  profileDetail = (id: number, params: RequestParams = {}) =>
+  get = (id: number, params: RequestParams = {}) =>
     this.request<GetProfileResponse, any>({
       path: `/profile/${id}`,
       method: "GET",
@@ -40,12 +40,12 @@ export class Profile<SecurityDataType = unknown> extends HttpClient<SecurityData
    * No description
    *
    * @tags Profiles
-   * @name ProfileUpdate
+   * @name Put
    * @summary Update a profile
    * @request PUT:/profile/{id}
    * @secure
    */
-  profileUpdate = (id: number, data: UpdateProfileRequest, params: RequestParams = {}) =>
+  put = (id: number, data: UpdateProfileRequest, params: RequestParams = {}) =>
     this.request<UpdateProfileResponse, any>({
       path: `/profile/${id}`,
       method: "PUT",
@@ -59,12 +59,12 @@ export class Profile<SecurityDataType = unknown> extends HttpClient<SecurityData
    * No description
    *
    * @tags Profiles
-   * @name ProfileDelete
+   * @name Delete
    * @summary Archive a profile
    * @request DELETE:/profile/{id}
    * @secure
    */
-  profileDelete = (id: number, params: RequestParams = {}) =>
+  delete = (id: number, params: RequestParams = {}) =>
     this.request<void, any>({
       path: `/profile/${id}`,
       method: "DELETE",
@@ -75,12 +75,12 @@ export class Profile<SecurityDataType = unknown> extends HttpClient<SecurityData
    * No description
    *
    * @tags Profiles
-   * @name ProfileCreate
+   * @name Post
    * @summary Create a new profile
    * @request POST:/profile
    * @secure
    */
-  profileCreate = (data: CreateProfileRequest, params: RequestParams = {}) =>
+  post = (data: CreateProfileRequest, params: RequestParams = {}) =>
     this.request<CreateProfileResponse, any>({
       path: `/profile`,
       method: "POST",

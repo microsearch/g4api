@@ -17,12 +17,12 @@ export class Admin<SecurityDataType = unknown> extends HttpClient<SecurityDataTy
    * No description
    *
    * @tags Admins
-   * @name AdminCreate
+   * @name Post
    * @summary Create new admin user
    * @request POST:/admin
    * @secure
    */
-  adminCreate = (data: CreateAdminRequest, params: RequestParams = {}) =>
+  post = (data: CreateAdminRequest, params: RequestParams = {}) =>
     this.request<CreateAdminResponse, any>({
       path: `/admin`,
       method: "POST",

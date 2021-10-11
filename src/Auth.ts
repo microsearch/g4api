@@ -17,12 +17,12 @@ export class Auth<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * No description
    *
    * @tags Authentication
-   * @name AuthCreate
+   * @name Post
    * @summary Authenticate user credentials
    * @request POST:/auth
    * @secure
    */
-  authCreate = (data: UserAuthenticationRequest, params: RequestParams = {}) =>
+  post = (data: UserAuthenticationRequest, params: RequestParams = {}) =>
     this.request<UserAuthenticationResponse, any>({
       path: `/auth`,
       method: "POST",
@@ -36,12 +36,12 @@ export class Auth<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * No description
    *
    * @tags Authentication
-   * @name AuthList
+   * @name Get
    * @summary Refresh authentication token
    * @request GET:/auth
    * @secure
    */
-  authList = (params: RequestParams = {}) =>
+  get = (params: RequestParams = {}) =>
     this.request<RefreshResponse, any>({
       path: `/auth`,
       method: "GET",

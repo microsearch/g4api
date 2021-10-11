@@ -17,12 +17,12 @@ export class Policy<SecurityDataType = unknown> extends HttpClient<SecurityDataT
    * No description
    *
    * @tags Authentication
-   * @name PasswordList
+   * @name Get
    * @summary Get a tenant's password policy
    * @request GET:/policy/password
    * @secure
    */
-  passwordList = (params: RequestParams = {}) =>
+  get = (params: RequestParams = {}) =>
     this.request<PasswordPolicy, any>({
       path: `/policy/password`,
       method: "GET",

@@ -16,12 +16,12 @@ export class Document<SecurityDataType = unknown> extends HttpClient<SecurityDat
    * No description
    *
    * @tags Documents
-   * @name DocumentCreate
+   * @name Post
    * @summary Verify an uploaded document
    * @request POST:/document/{id}
    * @secure
    */
-  documentCreate = (id: number, query?: { jobid?: string }, params: RequestParams = {}) =>
+  post = (id: number, query?: { jobid?: string }, params: RequestParams = {}) =>
     this.request<void, any>({
       path: `/document/${id}`,
       method: "POST",
