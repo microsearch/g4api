@@ -183,6 +183,86 @@ export interface ExportUsersResponse {
 
 export type FieldDescriptor = object;
 
+export interface G4AuthAuthMessage {
+  validCredentials: boolean;
+  accessAllowed: boolean;
+  username: string;
+  host: string;
+}
+
+export interface G4CollectionLoadedMessage {
+  /** @format int32 */
+  count: number;
+  name: string;
+  title: string;
+}
+
+export interface G4CollectionLoadingMessage {
+  /** @format int32 */
+  count: number;
+  name: string;
+  title: string;
+}
+
+export interface G4DocumentLoadedMessage {
+  username: string;
+
+  /** @format int64 */
+  docId: number;
+  signature: string;
+  docType: string;
+  filename: string;
+  loaded: string;
+  policies: string[];
+  jobId: string;
+}
+
+export interface G4SessionCloseMessage {
+  sessionId: string;
+  host: string;
+}
+
+export interface G4SessionCreateMessage {
+  sessionId: string;
+  username: string;
+  host: string;
+}
+
+export interface G4SessionFailMessage {
+  username: string;
+  host: string;
+}
+
+export interface G4UserArchiveMessage {
+  /** @format int32 */
+  id: number;
+  host: string;
+}
+
+export interface G4UserCreateMessage {
+  username: string;
+
+  /** @format int32 */
+  id: number;
+  host: string;
+}
+
+export interface G4UserImportMessage {
+  username: string;
+
+  /** @format int32 */
+  id: number;
+  host: string;
+}
+
+export interface G4UserUpdateMessage {
+  username: string;
+
+  /** @format int32 */
+  id: number;
+  host: string;
+}
+
 export interface GetAdminsResponse {
   admins: AdminUser[];
 }
