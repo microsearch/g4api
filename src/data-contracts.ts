@@ -233,6 +233,18 @@ export interface G4SessionFailMessage {
   host: string;
 }
 
+export interface G4TenantArchiveMessage {
+  /** @format int32 */
+  tenantId: number;
+}
+
+export interface G4TenantCreateMessage {
+  /** @format int32 */
+  tenantId: number;
+  name: string;
+  description: string;
+}
+
 export interface G4UserArchiveMessage {
   /** @format int32 */
   id: number;
