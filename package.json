@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc",
     "install": "npm run build",
-    "generate": "./generate.sh"
+    "generate": "./generate-dev.sh",
+    "generate-local": "./generate-local.sh"
   },
   "keywords": [],
   "author": "Ferruccio Barletta (ferruccio.barletta@gmail.com)",
