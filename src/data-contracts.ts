@@ -22,24 +22,24 @@ export interface AdminUser {
   roles: number[];
 
   /** @format date-time */
-  lastSeen?: string | null;
+  lastSeen: string | null;
   roleNames: string[];
 }
 
 export interface AuthenticatedSessionResponse {
   validCredentials: boolean;
   accessAllowed: boolean;
-  sessionId: string;
+  sessionId: string | null;
 
   /** @format int32 */
-  userId: number;
-  username: string;
-  fullname: string;
-  email: string;
-  bearer: string;
-  claims: string[];
-  roles: string[];
-  profiles: string[];
+  userId: number | null;
+  username: string | null;
+  fullname: string | null;
+  email: string | null;
+  bearer: string | null;
+  claims: string[] | null;
+  roles: string[] | null;
+  profiles: string[] | null;
   version: string;
 }
 
@@ -67,10 +67,10 @@ export interface CollectionInstance {
   created: string;
 
   /** @format date-time */
-  updated?: string | null;
+  updated: string | null;
 
   /** @format date-time */
-  indexed?: string | null;
+  indexed: string | null;
 }
 
 export interface CreateAdminRequest {
@@ -167,7 +167,7 @@ export interface ExportedUser {
   passwordHash: string;
 
   /** @format date-time */
-  archived: string;
+  archived: string | null;
   metadata: Record<string, Record<string, any>>;
 }
 
@@ -210,11 +210,11 @@ export interface G4DocumentLoadedMessage {
   /** @format int64 */
   docId: number;
   signature: string;
-  docType: string;
-  filename: string;
-  loaded: string;
+  docType: string | null;
+  filename: string | null;
+  loaded: string | null;
   policies: string[];
-  jobId: string;
+  jobId: string | null;
 }
 
 export interface G4SessionCloseMessage {
@@ -242,7 +242,7 @@ export interface G4TenantCreateMessage {
   /** @format int32 */
   tenantId: number;
   name: string;
-  description: string;
+  description: string | null;
 }
 
 export interface G4UserArchiveMessage {
@@ -268,7 +268,7 @@ export interface G4UserImportMessage {
 }
 
 export interface G4UserUpdateMessage {
-  username: string;
+  username: string | null;
 
   /** @format int32 */
   id: number;
@@ -276,11 +276,11 @@ export interface G4UserUpdateMessage {
 }
 
 export interface GetAdminsResponse {
-  admins: AdminUser[];
+  admins?: AdminUser[] | null;
 }
 
 export interface GetCollectionsResponse {
-  collections: Collection[];
+  collections?: Collection[];
 }
 
 export interface GetProfileResponse {
@@ -314,7 +314,7 @@ export interface GetTenantResponse {
 
   /** @format date-time */
   created: string;
-  description: string;
+  description: string | null;
 
   /** @format uuid */
   repository: string;
@@ -323,10 +323,10 @@ export interface GetTenantResponse {
   userEvents: Record<string, number>;
 
   /** @format date-time */
-  firstEvent: string;
+  firstEvent: string | null;
 
   /** @format date-time */
-  lastEvent: string;
+  lastEvent: string | null;
 }
 
 export interface GetTenantsResponse {
@@ -347,7 +347,7 @@ export interface GetUserDetailsResponse {
   profiles: number[];
 
   /** @format date-time */
-  lastSeen: string;
+  lastSeen: string | null;
   metadata: Record<string, Record<string, any>>;
   roleNames: string[];
   profileNames: string[];
@@ -416,14 +416,14 @@ export interface GetUsersRequest {
 export interface GetUsersWithAppMetadataResponse {
   /** @format int32 */
   total: number;
-  contains: string;
+  contains: string | null;
 
   /** @format int32 */
-  skip: number;
+  skip: number | null;
 
   /** @format int32 */
-  take: number;
-  archived: boolean;
+  take: number | null;
+  archived: boolean | null;
   users: UserWithAppMetadata[];
 }
 
@@ -540,8 +540,8 @@ export interface RetrievedUserEvent {
   occurred: string;
   eventType: UserEventType;
   host: string;
-  appName?: string | null;
-  detail?: Record<string, any>;
+  appName: string | null;
+  detail: Record<string, any>;
   username: string;
   fullname: string;
   activeUsername: string;
@@ -558,7 +558,7 @@ export interface RoleResponse {
 }
 
 export interface SecurityToken {
-  username: string;
+  username: string | null;
   fullname: string;
   token: string;
 }
@@ -613,7 +613,7 @@ export interface UpdateUserResponse {
   denyCollections: number[];
 
   /** @format date-time */
-  lastSeen: string;
+  lastSeen: string | null;
   metadata: Record<string, any>;
 }
 
@@ -631,14 +631,14 @@ export interface UserAuthenticationResponse {
   accessAllowed: boolean;
 
   /** @format int32 */
-  userId: number;
-  username: string;
-  fullname: string;
-  email: string;
-  bearer: string;
-  claims: string[];
-  roles: string[];
-  profiles: string[];
+  userId: number | null;
+  username: string | null;
+  fullname: string | null;
+  email: string | null;
+  bearer: string | null;
+  claims: string[] | null;
+  roles: string[] | null;
+  profiles: string[] | null;
   version: string;
 }
 
@@ -676,6 +676,6 @@ export interface UserWithAppMetadata {
   denyCollections: number[];
 
   /** @format date-time */
-  lastSeen?: string | null;
+  lastSeen: string | null;
   metadata: Record<string, any>;
 }
