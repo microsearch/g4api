@@ -9,7 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import { CreateTenantRequest, CreateTenantResponse, GetTenantResponse } from "./data-contracts";
+import { CreateTenantRequest, CreateTenantResponse, GetTenantResponse, ProblemDetails } from "./data-contracts";
 import { ContentType, HttpClient, RequestParams } from "./http-client";
 
 export class Tenant<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
@@ -23,7 +23,7 @@ export class Tenant<SecurityDataType = unknown> extends HttpClient<SecurityDataT
    * @secure
    */
   get = (id: number, params: RequestParams = {}) =>
-    this.request<GetTenantResponse, any>({
+    this.request<GetTenantResponse, ProblemDetails>({
       path: `/tenant/${id}`,
       method: "GET",
       secure: true,
@@ -40,7 +40,7 @@ export class Tenant<SecurityDataType = unknown> extends HttpClient<SecurityDataT
    * @secure
    */
   delete = (id: number, params: RequestParams = {}) =>
-    this.request<void, any>({
+    this.request<void, ProblemDetails>({
       path: `/tenant/${id}`,
       method: "DELETE",
       secure: true,
@@ -56,7 +56,7 @@ export class Tenant<SecurityDataType = unknown> extends HttpClient<SecurityDataT
    * @secure
    */
   post = (data: CreateTenantRequest, params: RequestParams = {}) =>
-    this.request<CreateTenantResponse, any>({
+    this.request<CreateTenantResponse, ProblemDetails>({
       path: `/tenant`,
       method: "POST",
       body: data,

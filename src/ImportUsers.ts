@@ -9,7 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import { ImportUsersRequest, ImportUsersResponse } from "./data-contracts";
+import { ImportUsersRequest, ImportUsersResponse, ProblemDetails } from "./data-contracts";
 import { ContentType, HttpClient, RequestParams } from "./http-client";
 
 export class ImportUsers<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
@@ -23,7 +23,7 @@ export class ImportUsers<SecurityDataType = unknown> extends HttpClient<Security
    * @secure
    */
   post = (data: ImportUsersRequest, params: RequestParams = {}) =>
-    this.request<ImportUsersResponse, any>({
+    this.request<ImportUsersResponse, ProblemDetails>({
       path: `/import-users`,
       method: "POST",
       body: data,

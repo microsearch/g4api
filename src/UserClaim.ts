@@ -9,7 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import { UserClaimAccountRequest } from "./data-contracts";
+import { ProblemDetails, UserClaimAccountRequest } from "./data-contracts";
 import { ContentType, HttpClient, RequestParams } from "./http-client";
 
 export class UserClaim<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
@@ -23,7 +23,7 @@ export class UserClaim<SecurityDataType = unknown> extends HttpClient<SecurityDa
    * @secure
    */
   put = (data: UserClaimAccountRequest, params: RequestParams = {}) =>
-    this.request<void, any>({
+    this.request<void, ProblemDetails>({
       path: `/user-claim`,
       method: "PUT",
       body: data,

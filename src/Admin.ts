@@ -9,7 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import { CreateAdminRequest, CreateAdminResponse } from "./data-contracts";
+import { CreateAdminRequest, CreateAdminResponse, ProblemDetails } from "./data-contracts";
 import { ContentType, HttpClient, RequestParams } from "./http-client";
 
 export class Admin<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
@@ -23,7 +23,7 @@ export class Admin<SecurityDataType = unknown> extends HttpClient<SecurityDataTy
    * @secure
    */
   post = (data: CreateAdminRequest, params: RequestParams = {}) =>
-    this.request<CreateAdminResponse, any>({
+    this.request<CreateAdminResponse, ProblemDetails>({
       path: `/admin`,
       method: "POST",
       body: data,

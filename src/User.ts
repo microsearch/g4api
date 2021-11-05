@@ -13,6 +13,7 @@ import {
   CreateUserRequest,
   CreateUserResponse,
   GetUserResponse,
+  ProblemDetails,
   UpdateUserRequest,
   UpdateUserResponse,
 } from "./data-contracts";
@@ -29,7 +30,7 @@ export class User<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * @secure
    */
   get = (id: number, params: RequestParams = {}) =>
-    this.request<GetUserResponse, any>({
+    this.request<GetUserResponse, ProblemDetails>({
       path: `/user/${id}`,
       method: "GET",
       secure: true,
@@ -46,7 +47,7 @@ export class User<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * @secure
    */
   put = (id: number, data: UpdateUserRequest, params: RequestParams = {}) =>
-    this.request<UpdateUserResponse, any>({
+    this.request<UpdateUserResponse, ProblemDetails>({
       path: `/user/${id}`,
       method: "PUT",
       body: data,
@@ -65,7 +66,7 @@ export class User<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * @secure
    */
   delete = (id: number, params: RequestParams = {}) =>
-    this.request<void, any>({
+    this.request<void, ProblemDetails>({
       path: `/user/${id}`,
       method: "DELETE",
       secure: true,
@@ -81,7 +82,7 @@ export class User<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * @secure
    */
   post = (data: CreateUserRequest, params: RequestParams = {}) =>
-    this.request<CreateUserResponse, any>({
+    this.request<CreateUserResponse, ProblemDetails>({
       path: `/user`,
       method: "POST",
       body: data,

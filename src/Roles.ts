@@ -9,7 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import { GetRolesResponse } from "./data-contracts";
+import { GetRolesResponse, ProblemDetails } from "./data-contracts";
 import { HttpClient, RequestParams } from "./http-client";
 
 export class Roles<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
@@ -23,7 +23,7 @@ export class Roles<SecurityDataType = unknown> extends HttpClient<SecurityDataTy
    * @secure
    */
   getScope = (scope: string, params: RequestParams = {}) =>
-    this.request<GetRolesResponse, any>({
+    this.request<GetRolesResponse, ProblemDetails>({
       path: `/roles/${scope}`,
       method: "GET",
       secure: true,
@@ -40,7 +40,7 @@ export class Roles<SecurityDataType = unknown> extends HttpClient<SecurityDataTy
    * @secure
    */
   get = (params: RequestParams = {}) =>
-    this.request<GetRolesResponse, any>({
+    this.request<GetRolesResponse, ProblemDetails>({
       path: `/roles`,
       method: "GET",
       secure: true,

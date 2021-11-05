@@ -9,7 +9,12 @@
  * ---------------------------------------------------------------
  */
 
-import { AuthenticatedSessionResponse, CreateSessionRequest, GetSessionResponse } from "./data-contracts";
+import {
+  AuthenticatedSessionResponse,
+  CreateSessionRequest,
+  GetSessionResponse,
+  ProblemDetails,
+} from "./data-contracts";
 import { ContentType, HttpClient, RequestParams } from "./http-client";
 
 export class Session<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
@@ -23,7 +28,7 @@ export class Session<SecurityDataType = unknown> extends HttpClient<SecurityData
    * @secure
    */
   post = (data: CreateSessionRequest, params: RequestParams = {}) =>
-    this.request<AuthenticatedSessionResponse, any>({
+    this.request<AuthenticatedSessionResponse, ProblemDetails>({
       path: `/session`,
       method: "POST",
       body: data,
@@ -42,7 +47,7 @@ export class Session<SecurityDataType = unknown> extends HttpClient<SecurityData
    * @secure
    */
   get = (id: string, params: RequestParams = {}) =>
-    this.request<GetSessionResponse, any>({
+    this.request<GetSessionResponse, ProblemDetails>({
       path: `/session/${id}`,
       method: "GET",
       secure: true,
@@ -59,7 +64,7 @@ export class Session<SecurityDataType = unknown> extends HttpClient<SecurityData
    * @secure
    */
   put = (id: string, data: any, params: RequestParams = {}) =>
-    this.request<void, any>({
+    this.request<void, ProblemDetails>({
       path: `/session/${id}`,
       method: "PUT",
       body: data,
@@ -77,7 +82,7 @@ export class Session<SecurityDataType = unknown> extends HttpClient<SecurityData
    * @secure
    */
   delete = (id: string, params: RequestParams = {}) =>
-    this.request<void, any>({
+    this.request<void, ProblemDetails>({
       path: `/session/${id}`,
       method: "DELETE",
       secure: true,

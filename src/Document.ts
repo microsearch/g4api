@@ -9,6 +9,7 @@
  * ---------------------------------------------------------------
  */
 
+import { ProblemDetails } from "./data-contracts";
 import { HttpClient, RequestParams } from "./http-client";
 
 export class Document<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
@@ -22,7 +23,7 @@ export class Document<SecurityDataType = unknown> extends HttpClient<SecurityDat
    * @secure
    */
   post = (id: number, query?: { jobid?: string }, params: RequestParams = {}) =>
-    this.request<void, any>({
+    this.request<void, ProblemDetails>({
       path: `/document/${id}`,
       method: "POST",
       query: query,

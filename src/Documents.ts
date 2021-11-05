@@ -9,7 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import { LoadDocumentRequest, LoadDocumentResponse } from "./data-contracts";
+import { LoadDocumentRequest, LoadDocumentResponse, ProblemDetails } from "./data-contracts";
 import { ContentType, HttpClient, RequestParams } from "./http-client";
 
 export class Documents<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
@@ -23,7 +23,7 @@ export class Documents<SecurityDataType = unknown> extends HttpClient<SecurityDa
    * @secure
    */
   post = (data: LoadDocumentRequest, params: RequestParams = {}) =>
-    this.request<LoadDocumentResponse, any>({
+    this.request<LoadDocumentResponse, ProblemDetails>({
       path: `/documents`,
       method: "POST",
       body: data,

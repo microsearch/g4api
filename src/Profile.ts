@@ -12,7 +12,7 @@
 import {
   CreateProfileRequest,
   CreateProfileResponse,
-  GetProfileResponse,
+  ProblemDetails,
   UpdateProfileRequest,
   UpdateProfileResponse,
 } from "./data-contracts";
@@ -29,11 +29,10 @@ export class Profile<SecurityDataType = unknown> extends HttpClient<SecurityData
    * @secure
    */
   get = (id: number, params: RequestParams = {}) =>
-    this.request<GetProfileResponse, any>({
+    this.request<any, ProblemDetails>({
       path: `/profile/${id}`,
       method: "GET",
       secure: true,
-      format: "json",
       ...params,
     });
   /**
@@ -46,7 +45,7 @@ export class Profile<SecurityDataType = unknown> extends HttpClient<SecurityData
    * @secure
    */
   put = (id: number, data: UpdateProfileRequest, params: RequestParams = {}) =>
-    this.request<UpdateProfileResponse, any>({
+    this.request<UpdateProfileResponse, ProblemDetails>({
       path: `/profile/${id}`,
       method: "PUT",
       body: data,
@@ -65,7 +64,7 @@ export class Profile<SecurityDataType = unknown> extends HttpClient<SecurityData
    * @secure
    */
   delete = (id: number, params: RequestParams = {}) =>
-    this.request<void, any>({
+    this.request<void, ProblemDetails>({
       path: `/profile/${id}`,
       method: "DELETE",
       secure: true,
@@ -81,7 +80,7 @@ export class Profile<SecurityDataType = unknown> extends HttpClient<SecurityData
    * @secure
    */
   post = (data: CreateProfileRequest, params: RequestParams = {}) =>
-    this.request<CreateProfileResponse, any>({
+    this.request<CreateProfileResponse, ProblemDetails>({
       path: `/profile`,
       method: "POST",
       body: data,

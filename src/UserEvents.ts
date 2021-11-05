@@ -9,7 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import { GetUserEventsRequest, GetUserEventsResponse } from "./data-contracts";
+import { GetUserEventsRequest, GetUserEventsResponse, ProblemDetails } from "./data-contracts";
 import { ContentType, HttpClient, RequestParams } from "./http-client";
 
 export class UserEvents<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
@@ -23,7 +23,7 @@ export class UserEvents<SecurityDataType = unknown> extends HttpClient<SecurityD
    * @secure
    */
   post = (data: GetUserEventsRequest, params: RequestParams = {}) =>
-    this.request<GetUserEventsResponse, any>({
+    this.request<GetUserEventsResponse, ProblemDetails>({
       path: `/user-events`,
       method: "POST",
       body: data,

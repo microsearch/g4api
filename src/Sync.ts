@@ -9,6 +9,7 @@
  * ---------------------------------------------------------------
  */
 
+import { ProblemDetails } from "./data-contracts";
 import { HttpClient, RequestParams } from "./http-client";
 
 export class Sync<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
@@ -22,7 +23,7 @@ export class Sync<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * @secure
    */
   post = (params: RequestParams = {}) =>
-    this.request<void, any>({
+    this.request<void, ProblemDetails>({
       path: `/sync`,
       method: "POST",
       secure: true,

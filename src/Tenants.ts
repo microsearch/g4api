@@ -9,7 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import { GetTenantsResponse } from "./data-contracts";
+import { GetTenantsResponse, ProblemDetails } from "./data-contracts";
 import { HttpClient, RequestParams } from "./http-client";
 
 export class Tenants<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
@@ -23,7 +23,7 @@ export class Tenants<SecurityDataType = unknown> extends HttpClient<SecurityData
    * @secure
    */
   get = (params: RequestParams = {}) =>
-    this.request<GetTenantsResponse, any>({
+    this.request<GetTenantsResponse, ProblemDetails>({
       path: `/tenants`,
       method: "GET",
       secure: true,
@@ -40,7 +40,7 @@ export class Tenants<SecurityDataType = unknown> extends HttpClient<SecurityData
    * @secure
    */
   delete = (query?: { days?: number }, params: RequestParams = {}) =>
-    this.request<void, any>({
+    this.request<void, ProblemDetails>({
       path: `/tenants`,
       method: "DELETE",
       query: query,

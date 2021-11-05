@@ -9,7 +9,12 @@
  * ---------------------------------------------------------------
  */
 
-import { GetCollectionsResponse, PostCollectionRequest, PostCollectionResponse } from "./data-contracts";
+import {
+  GetCollectionsResponse,
+  PostCollectionRequest,
+  PostCollectionResponse,
+  ProblemDetails,
+} from "./data-contracts";
 import { ContentType, HttpClient, RequestParams } from "./http-client";
 
 export class Collections<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
@@ -22,7 +27,7 @@ export class Collections<SecurityDataType = unknown> extends HttpClient<Security
    * @secure
    */
   get = (params: RequestParams = {}) =>
-    this.request<GetCollectionsResponse, any>({
+    this.request<GetCollectionsResponse, ProblemDetails>({
       path: `/collections`,
       method: "GET",
       secure: true,
@@ -38,7 +43,7 @@ export class Collections<SecurityDataType = unknown> extends HttpClient<Security
    * @secure
    */
   post = (data: PostCollectionRequest, params: RequestParams = {}) =>
-    this.request<PostCollectionResponse, any>({
+    this.request<PostCollectionResponse, ProblemDetails>({
       path: `/collections`,
       method: "POST",
       body: data,

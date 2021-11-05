@@ -9,7 +9,12 @@
  * ---------------------------------------------------------------
  */
 
-import { RefreshResponse, UserAuthenticationRequest, UserAuthenticationResponse } from "./data-contracts";
+import {
+  ProblemDetails,
+  RefreshResponse,
+  UserAuthenticationRequest,
+  UserAuthenticationResponse,
+} from "./data-contracts";
 import { ContentType, HttpClient, RequestParams } from "./http-client";
 
 export class Auth<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
@@ -23,7 +28,7 @@ export class Auth<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * @secure
    */
   post = (data: UserAuthenticationRequest, params: RequestParams = {}) =>
-    this.request<UserAuthenticationResponse, any>({
+    this.request<UserAuthenticationResponse, ProblemDetails>({
       path: `/auth`,
       method: "POST",
       body: data,
@@ -42,7 +47,7 @@ export class Auth<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * @secure
    */
   get = (params: RequestParams = {}) =>
-    this.request<RefreshResponse, any>({
+    this.request<RefreshResponse, ProblemDetails>({
       path: `/auth`,
       method: "GET",
       secure: true,

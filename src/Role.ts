@@ -9,7 +9,13 @@
  * ---------------------------------------------------------------
  */
 
-import { CreateRoleRequest, CreateRoleResponse, RoleResponse, UpdateRoleRequest } from "./data-contracts";
+import {
+  CreateRoleRequest,
+  CreateRoleResponse,
+  ProblemDetails,
+  RoleResponse,
+  UpdateRoleRequest,
+} from "./data-contracts";
 import { ContentType, HttpClient, RequestParams } from "./http-client";
 
 export class Role<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
@@ -23,7 +29,7 @@ export class Role<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * @secure
    */
   get = (id: number, params: RequestParams = {}) =>
-    this.request<RoleResponse, any>({
+    this.request<RoleResponse, ProblemDetails>({
       path: `/role/${id}`,
       method: "GET",
       secure: true,
@@ -40,7 +46,7 @@ export class Role<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * @secure
    */
   put = (id: number, data: UpdateRoleRequest, params: RequestParams = {}) =>
-    this.request<RoleResponse, any>({
+    this.request<RoleResponse, ProblemDetails>({
       path: `/role/${id}`,
       method: "PUT",
       body: data,
@@ -59,7 +65,7 @@ export class Role<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * @secure
    */
   delete = (id: number, params: RequestParams = {}) =>
-    this.request<void, any>({
+    this.request<void, ProblemDetails>({
       path: `/role/${id}`,
       method: "DELETE",
       secure: true,
@@ -75,7 +81,7 @@ export class Role<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * @secure
    */
   post = (data: CreateRoleRequest, params: RequestParams = {}) =>
-    this.request<CreateRoleResponse, any>({
+    this.request<CreateRoleResponse, ProblemDetails>({
       path: `/role`,
       method: "POST",
       body: data,

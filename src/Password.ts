@@ -9,7 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import { PasswordChangeRequest } from "./data-contracts";
+import { PasswordChangeRequest, ProblemDetails } from "./data-contracts";
 import { ContentType, HttpClient, RequestParams } from "./http-client";
 
 export class Password<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
@@ -23,7 +23,7 @@ export class Password<SecurityDataType = unknown> extends HttpClient<SecurityDat
    * @secure
    */
   put = (data: PasswordChangeRequest, params: RequestParams = {}) =>
-    this.request<void, any>({
+    this.request<void, ProblemDetails>({
       path: `/password`,
       method: "PUT",
       body: data,

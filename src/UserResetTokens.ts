@@ -9,7 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import { SecurityToken } from "./data-contracts";
+import { ProblemDetails, SecurityToken } from "./data-contracts";
 import { HttpClient, RequestParams } from "./http-client";
 
 export class UserResetTokens<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
@@ -23,7 +23,7 @@ export class UserResetTokens<SecurityDataType = unknown> extends HttpClient<Secu
    * @secure
    */
   get = (query?: { email?: string }, params: RequestParams = {}) =>
-    this.request<SecurityToken[], any>({
+    this.request<SecurityToken[], ProblemDetails>({
       path: `/user-reset-tokens`,
       method: "GET",
       query: query,

@@ -523,6 +523,16 @@ export interface PostCollectionResponse {
   errors: string[];
 }
 
+export interface ProblemDetails {
+  type?: string | null;
+  title?: string | null;
+
+  /** @format int32 */
+  status?: number | null;
+  detail?: string | null;
+  instance?: string | null;
+}
+
 export interface RefreshResponse {
   username: string;
   claims: string[];

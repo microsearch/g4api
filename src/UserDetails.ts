@@ -9,7 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import { GetUserDetailsResponse } from "./data-contracts";
+import { GetUserDetailsResponse, ProblemDetails } from "./data-contracts";
 import { HttpClient, RequestParams } from "./http-client";
 
 export class UserDetails<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
@@ -23,7 +23,7 @@ export class UserDetails<SecurityDataType = unknown> extends HttpClient<Security
    * @secure
    */
   get = (id: number, params: RequestParams = {}) =>
-    this.request<GetUserDetailsResponse, any>({
+    this.request<GetUserDetailsResponse, ProblemDetails>({
       path: `/user-details/${id}`,
       method: "GET",
       secure: true,

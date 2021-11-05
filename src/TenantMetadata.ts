@@ -9,6 +9,7 @@
  * ---------------------------------------------------------------
  */
 
+import { ProblemDetails } from "./data-contracts";
 import { ContentType, HttpClient, RequestParams } from "./http-client";
 
 export class TenantMetadata<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
@@ -22,7 +23,7 @@ export class TenantMetadata<SecurityDataType = unknown> extends HttpClient<Secur
    * @secure
    */
   get = (query?: { app?: string }, params: RequestParams = {}) =>
-    this.request<Record<string, any>, any>({
+    this.request<Record<string, any>, ProblemDetails>({
       path: `/tenant-metadata`,
       method: "GET",
       query: query,
@@ -40,7 +41,7 @@ export class TenantMetadata<SecurityDataType = unknown> extends HttpClient<Secur
    * @secure
    */
   put = (data: Record<string, any>, query?: { app?: string }, params: RequestParams = {}) =>
-    this.request<void, any>({
+    this.request<void, ProblemDetails>({
       path: `/tenant-metadata`,
       method: "PUT",
       query: query,

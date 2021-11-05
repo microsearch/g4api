@@ -9,7 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import { PasswordPolicy } from "./data-contracts";
+import { PasswordPolicy, ProblemDetails } from "./data-contracts";
 import { HttpClient, RequestParams } from "./http-client";
 
 export class Policy<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
@@ -23,7 +23,7 @@ export class Policy<SecurityDataType = unknown> extends HttpClient<SecurityDataT
    * @secure
    */
   get = (params: RequestParams = {}) =>
-    this.request<PasswordPolicy, any>({
+    this.request<PasswordPolicy, ProblemDetails>({
       path: `/policy/password`,
       method: "GET",
       secure: true,
