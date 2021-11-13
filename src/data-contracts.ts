@@ -280,7 +280,7 @@ export interface GetAdminsResponse {
 }
 
 export interface GetCollectionsResponse {
-  collections?: Collection[];
+  collections: Collection[];
 }
 
 export interface GetProfileResponse {
