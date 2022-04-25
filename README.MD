@@ -18,21 +18,12 @@ compatible with the latest version of the G4 Service.
 
 ## importing g4api-ts
 
-I've set up g4api-ts so that you can import it directly from GitHub. At some
-point, we may set up a local NPM repository using AWS CodeArtifact. For now, I
-put it on GitHub so we don't have to deal with CodeCommit credentials. Also, I'm
-not sure if NPM supports importing git projects from anything other than GitHub
-and local storage.
+You can import g4api-ts from our AWS CodeArtifact repository. To set up npm to
+use our repository run the following command:
 
-Once, you've set up your node or browser project you can add g4api-ts to its dependencies using:
+    aws codeartifact login --domain microsearch --repository microsearch --format npm
 
-    npm install --save github:microsearch/g4api-ts#v1.3.4
-
-to get a specific version of the API or
-
-    npm install --save github:microsearch/g4api-ts
-
-if you want to live on the edge.
+This will modify your `~/.npmrc` to use our repository instead of the public npm repository. Our CodeArtifact npm respository is set up to use the public npm repository as an upstream source, so you will still be able to import public npm packages.
 
 ## sample code
 
@@ -64,18 +55,3 @@ async function authenticate(): Promise<g4.UserAuthenticationResponse> {
   console.log(tenants.data.tenants);
 })();
 ```
-
-## maintenance
-
-Procedure to update g4api-ts when the G4 Service API has changed.
-
-1. `git clone https://github.com/microsearch/g4api-ts.git` if necessary.
-1. `cd g4api-ts`
-1. Update `package.json` to reflect current G4 Service version on dev.
-1. `git clean -fxd`
-1. `npm run generate`
-1. Update version in `package.json`.
-1. Commit changes. i.e. `git commit -am "blah blah blah"`
-1. Create a tag which matches the new version in `package.json`. i.e. `git tag v1.3.4`
-1. `git push`
-1. `git push --tags`

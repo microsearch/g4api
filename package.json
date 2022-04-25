@@ -1,13 +1,14 @@
 {
   "name": "g4api-ts",
-  "version": "v1.5.2",
+  "version": "1.5.2",
   "description": "G4 API bindings for TypeScript",
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
     "install": "npm run build",
-    "generate": "./generate-dev.sh",
-    "generate-local": "./generate-local.sh"
+    "gen-dev": "./generate.sh https://g4-dev.v1.mrcapi.net/swagger/v1/swagger.json",
+    "gen-local": "./generate.sh http://localhost:5000/swagger/v1/swagger.json",
+    "docs": "npx typedoc src/index.ts"
   },
   "keywords": [],
   "author": "Ferruccio Barletta (ferruccio.barletta@gmail.com)",
